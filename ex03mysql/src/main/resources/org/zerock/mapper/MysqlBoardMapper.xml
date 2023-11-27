@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- id는 MysqlBoardMapper에 있는 메소드 이름과 일치시킴 -->
+<!-- resultType은 dto파일의 경로를 정확히 입력해주면 됨 -->
+<mapper namespace="org.zerock.mapper.MysqlBoardMapper">
+	<select id="getList" resultType="org.zerock.domain.BoardDTO">
+		select * from board
+	</select>
+	
+	<insert id="insert">
+		insert into board(bNum,title,content,writer)
+		values (#{bNum}, #{title}, #{content}, #{writer})
+	</insert>
+	
+	
+	<select id="read" resultType="org.zerock.domain.BoardDTO">
+		select * from board where bNum=#{bNum}
+	</select>
+	
+	<delete id="delete">
+		delete from board where bNum=#{bNum}
+	</delete>
+	
+	<update id="update">
+		update board set title=#{title}, content=#{content},
+		writer=#{writer} where bNum=#{bNum}
+	</update>
+	
+
+</mapper>
