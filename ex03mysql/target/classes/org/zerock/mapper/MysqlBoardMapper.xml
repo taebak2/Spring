@@ -4,9 +4,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<!-- id는 MysqlBoardMapper에 있는 메소드 이름과 일치시킴 -->
+<!-- id는 boardmapper에 있는 메소드 이름과 일치시킴 -->
 <!-- resultType은 dto파일의 경로를 정확히 입력해주면 됨 -->
 <mapper namespace="org.zerock.mapper.MysqlBoardMapper">
+
 	<select id="getList" resultType="org.zerock.domain.BoardDTO">
 		select * from board
 	</select>
@@ -15,7 +16,6 @@
 		insert into board(bNum,title,content,writer)
 		values (#{bNum}, #{title}, #{content}, #{writer})
 	</insert>
-	
 	
 	<select id="read" resultType="org.zerock.domain.BoardDTO">
 		select * from board where bNum=#{bNum}
@@ -32,3 +32,12 @@
 	
 
 </mapper>
+
+
+
+
+
+
+
+
+

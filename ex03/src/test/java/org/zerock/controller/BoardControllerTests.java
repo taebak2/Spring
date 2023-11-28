@@ -28,12 +28,27 @@ public class BoardControllerTests {
 	@Before
 	public void setup() {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+		
 	}
+	
 	@Test
 	public void testList() throws Exception {
 		log.info(
-				mockMvc.perform(MockMvcRequestBuilders.get("/board/list")).andReturn()
-				.getModelAndView()
-				.getModelMap());
+				mockMvc.perform(MockMvcRequestBuilders.get("/board/list")).andReturn().getModelAndView().getModelMap());
+		
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

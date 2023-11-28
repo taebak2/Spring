@@ -11,33 +11,31 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Service
-@AllArgsConstructor 
-public class MysqlBoardServiceImpl implements MysqlBoardService{
-
+@AllArgsConstructor
+public class MysqlBoardServiceImpl implements MysqlBoardService {
+	
 	private MysqlBoardMapper mapper;
 
 	@Override
 	public void register(BoardDTO board) {
-		log.info("게시물 등록" + board);
+		log.info("게시물 등록 " + board);
 		mapper.insert(board);
-	}
-
-	@Override
-	public BoardDTO get(int bNum) {
-		log.info("get......" + bNum);
-		return mapper.read(bNum);
 		
 	}
 
 	@Override
-	public boolean modify(BoardDTO board) {
-		// TODO Auto-generated method stub
+	public BoardDTO get(int num) {
+		log.info("게시물 번호로 가져오기 " + num);
+		return mapper.read(num);
+	}
+
+	@Override
+	public boolean modify(BoardDTO board) {	// 219페이지부터 교재 참고해서 해라 mysql
 		return false;
 	}
 
 	@Override
-	public boolean remove(int bNum) {
-		// TODO Auto-generated method stub
+	public boolean remove(int num) {
 		return false;
 	}
 
@@ -46,5 +44,6 @@ public class MysqlBoardServiceImpl implements MysqlBoardService{
 		log.info("게시물 전체목록 가져오기");
 		return mapper.getList();
 	}
+	
 	
 }
