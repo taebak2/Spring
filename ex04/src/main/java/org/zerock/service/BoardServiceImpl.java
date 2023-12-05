@@ -31,14 +31,13 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public boolean modify(BoardVO board) {
-		log.info("수정하기 : " + board);
-		return mapper.update(board)==1;	// 업데이트 작업이 성공적으로 이루어졌는지를 확인하는 조건 
-										// 성공했으면 true 리턴
+		log.info("수정하기 : "  + board);
+		return mapper.update(board)==1;
 	}
 
 	@Override
 	public boolean remove(Long bno) {
-		log.info("삭제하기 : " + bno);
+		log.info("삭제하기 : "  + bno);
 		return mapper.delete(bno)==1;
 	}
 
